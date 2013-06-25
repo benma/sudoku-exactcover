@@ -110,8 +110,11 @@ class Node(object):
 class Column(Node):
     size = 0
         
-    def __cmp__(self, other):
-        return cmp(self.size, other.size)
+    def __lt__(self, other):
+        return self.size < other.size
+
+    def __eq__(self, other):
+        return self.size == other.size
     
     def __iter__(self):
         cursor = self.bottom
